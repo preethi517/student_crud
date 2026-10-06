@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://YOUR-BACKEND.onrender.com'
+  apiUrl: 'https://spring-backend-rp7a.onrender.com'
 };

@@ -7,6 +7,7 @@ COPY pom.xml .
 COPY src ./src
 
 # Build production jar skipping tests
+
 RUN mvn clean package -DskipTests
 
 # Stage 2: Minimal runtime environment
@@ -14,4 +15,6 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# ENTRYPOINT ["java", "-jar", "app.jar"]
+
+ENTRYPOINT ["java", "-Xmx384m", "-jar", "app.jar"]
